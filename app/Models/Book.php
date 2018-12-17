@@ -18,4 +18,9 @@ class Book extends Model
         'author_id', 
         'status', 
     ];
+
+    public function image()
+    {
+        return $this->morphOne('App\Models\Image', 'imageable');
+    }
 }
