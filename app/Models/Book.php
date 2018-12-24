@@ -3,6 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Image;
+use App\Models\Author;
+use App\Models\Comment;
+use App\Models\Category;
+use App\Models\User;
+use App\Models\Borrow;
 
 class Book extends Model
 {
@@ -21,6 +27,36 @@ class Book extends Model
 
     public function image()
     {
-        return $this->morphOne('App\Models\Image', 'imageable');
+        return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function authors()
+    {
+        return $this->hasMany(Author::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_like');
+    }
+
+    public function user_borrows()
+    {
+        return $this->belongsToMany(User::class, 'borrow');
+    }
+
+    public function borrows()
+    {
+        return $this->hasMany(Borrow::class);
     }
 }

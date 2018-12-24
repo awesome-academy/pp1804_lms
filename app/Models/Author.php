@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Book;
 
 class Author extends Model
 {
@@ -11,4 +12,9 @@ class Author extends Model
     protected $fillable = [
         'name', 
     ];
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
 }
