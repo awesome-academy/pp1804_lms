@@ -11,8 +11,16 @@
 |
 */
 
+/**
+ * FRONTEND
+ */
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
+});
+
+Route::get('category', function(){
+
 });
 
 Auth::routes();
