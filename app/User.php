@@ -5,6 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Image;
+use App\Models\Comment;
+use App\Models\Book;
+use App\Models\Borrow;
+use App\Models\Activity;
+
 
 class User extends Authenticatable
 {
@@ -33,6 +39,31 @@ class User extends Authenticatable
 
     public function image()
     {
-        return $this->morphOne('App\Models\Image', 'imageable');
+        return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function favorites()
+    {
+        return $this->hasMany(Book::class, 'user_like');
+    }
+
+    public function books_borrows()
+    {
+        return $this->hasMany(Book::class, 'borrow');
+    }
+
+    public function borrows()
+    {
+        return $this->hasMany(Borrow::class);
+    }
+
+    public function activities()
+    {
+        return $this->hasMany(Activity::class);
     }
 }

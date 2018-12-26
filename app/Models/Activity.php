@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Activity extends Model
 {
@@ -13,4 +14,9 @@ class Activity extends Model
         'subject_id',
         'type',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
