@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admincp';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -66,7 +66,12 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => $data['password'],
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('frontend.register');
     }
 }
