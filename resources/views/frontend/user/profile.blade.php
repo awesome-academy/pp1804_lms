@@ -20,6 +20,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
+
+                @if (session('message'))
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                @endif
+
                 <p>Họ và tên: {{ Auth::user()->name }}</p>
                 <p>Email: {{ Auth::user()->email }}</p>
                 <p>

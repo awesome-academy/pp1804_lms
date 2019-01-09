@@ -49,7 +49,7 @@ class User extends Authenticatable
 
     public function favorites()
     {
-        return $this->hasMany(Book::class, 'user_like');
+        return $this->belongsToMany(Book::class, 'user_like');
     }
 
     public function books_borrows()

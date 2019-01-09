@@ -33,4 +33,11 @@ class UserController extends Controller
         
         return redirect()->back()->with('oldPassword', 'Mật khẩu cũ không chính xác.');
     }
+
+    public function favorite()
+    {  
+        $books = Auth::user()->favorites()->paginate(18);
+
+        return view('frontend.user.favorite', compact('books'));
+    }
 }

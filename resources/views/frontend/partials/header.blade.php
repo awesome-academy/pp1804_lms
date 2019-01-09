@@ -11,10 +11,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav align-items-lg-center text-uppercase pt-3 pt-lg-0 ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href=""><i class="fas fa-list-alt"></i> {{ trans('menu.category') }}</a>
+                        <a class="nav-link" href="{{ route('category') }}"><i class="fas fa-list-alt"></i> {{ trans('menu.category') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-book"></i> {{ trans('menu.book') }}</a>
+                        <a class="nav-link" href="{{ route('books') }}"><i class="fas fa-book"></i> {{ trans('menu.book') }}</a>
                     </li>
                     @if (Auth::check())
                         <li class="nav-item dropdown">
@@ -22,7 +22,7 @@
                             </a>
                             <div class="dropdown-menu mb-2" aria-labelledby="DropdownMenu">
                                 <a class="dropdown-item" href="{{ route('profile') }}"><i class="fas fa-user"></i> {{ trans('menu.profile') }}</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-heart"></i> {{ trans('menu.favorite') }}</a>
+                                <a class="dropdown-item" href="{{ route('favorite') }}"><i class="fas fa-heart"></i> {{ trans('menu.favorite') }}</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-book"></i> {{ trans('menu.bookcase') }}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> {{ trans('menu.logout') }}</a>
