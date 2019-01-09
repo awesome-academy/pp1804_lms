@@ -25,6 +25,12 @@ Route::get('category', function(){
 
 Auth::routes();
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('user/profile', 'UserController@profile')->name('profile');
+    Route::get('user/profile/changepassword', 'UserController@showChangePasswordForm')->name('changepassword');
+    Route::post('user/profile/changepassword', 'UserController@changePassword')->name('changepassword');
+});
+
 Route::prefix('admincp')->name('admin.')->group(function(){
     Route::get('/', 'HomeController@index')->name('home');
 });
