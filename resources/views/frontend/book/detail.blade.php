@@ -1,7 +1,9 @@
 
 @extends('frontend.master')
 
-@section('title', 'Thư viện')
+@section('title')
+    {{ $book->name }}
+@endsection
 
 @section('header')
     
@@ -21,7 +23,7 @@
             <div class="col-md-6">
                 <div class="detail-book">
                     <h1 class="title">{{ $book->name }}</h1>
-                    <p class="author"><a href="{{ route('author.detail', $book->author_id) }}">{{ $book->authors['name'] }}</a></p>
+                    <p class="author"><a href="{{ route('author.detail', $book->authors['slug'].'-'.$book->author_id) }}">{{ $book->authors['name'] }}</a></p>
                     <p>SKU:  {{ $book->sku }}</p>
                     <p>Nhà xuất bản: Không biết</p>
                     <p>Phát hành bởi: Nhã Nam</p>
@@ -29,7 +31,7 @@
                     <p>Số lượng còn lại: {{ $book->quantity }} cuốn</p>
                     <p>Category: 
                         @foreach($book->categories as $category)
-                            <a href="">{{ $category['name'] }}</a>
+                            <a href="{{ route('category.detail', $category->slug.'-'.$category->id) }}">{{ $category['name'] }}</a>
                         @endforeach
                     </p>
                     
