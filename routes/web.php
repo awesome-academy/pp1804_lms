@@ -15,13 +15,15 @@
  * FRONTEND
  */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('category', function(){
+Route::get('category', 'HomeController@showCategory')->name('category');
+Route::get('category/{slug?}', 'HomeController@showDetailCategory')->name('category.detail');
 
-});
+Route::get('books', 'HomeController@showListBook')->name('books');
+Route::get('book/{slug?}', 'HomeController@showDetailBook')->name('book.detail');
+
+Route::get('author/{slug?}', 'HomeController@showBookByAuthor')->name('author.detail');
 
 Auth::routes();
 
@@ -29,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('user/profile', 'UserController@profile')->name('profile');
     Route::get('user/profile/changepassword', 'UserController@showChangePasswordForm')->name('changepassword');
     Route::post('user/profile/changepassword', 'UserController@changePassword')->name('changepassword');
+    Route::get('user/favorite', 'UserController@favorite')->name('favorite');
 });
 
 Route::prefix('admincp')->name('admin.')->group(function(){

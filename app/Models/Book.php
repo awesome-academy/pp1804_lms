@@ -32,7 +32,7 @@ class Book extends Model
 
     public function authors()
     {
-        return $this->hasMany(Author::class);
+        return $this->belongsTo(Author::class, 'author_id');
     }
 
     public function comments()
@@ -42,7 +42,7 @@ class Book extends Model
 
     public function categories()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 
     public function users()
