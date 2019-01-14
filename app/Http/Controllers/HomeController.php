@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Book;
+use App\Models\Author;
 
 class HomeController extends Controller
 {
@@ -57,8 +58,18 @@ class HomeController extends Controller
     }
 
     public function showBookByAuthor($slug)
-    {
-        //
+    {   
+        $id = $this->getIDFromSlug($slug);
+
+        $author = Author::findOrFail($id);
+
+        $books = Book::with([
+            'authors' => function($query) use ($id){
+                $query->where('authors.id', $id);
+            }
+        ])->paginate(config('customs.paginate.number_of_page'));
+
+        return view('frontend.author.list', compact('author', 'books'));
     }
 
     public function getIDFromSlug($slug)

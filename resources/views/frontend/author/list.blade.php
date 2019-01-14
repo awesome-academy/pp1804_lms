@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('title')
-    {{ $category->name }}
+    {{ $author->name }}
 @endsection
 
 @section('header')
@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>{{ $category->name }}</h2>
+                <h2>{{ $author->name }}</h2>
             </div>
             
             @include('frontend.partials.list-book')
