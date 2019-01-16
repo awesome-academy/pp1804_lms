@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
  * BACKEND
  */
 
-Route::prefix('admincp')->name('admin.')->namespace('Admin')->group(function(){
+Route::prefix('admincp')->middleware(['checkrole'])->name('admin.')->namespace('Admin')->group(function(){
     Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('users', 'UserController');
 });
