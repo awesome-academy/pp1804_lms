@@ -21,6 +21,9 @@
                             <a class="nav-link dropdown-toggle" href="#" id="DropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ trans('menu.hi') }}, {{ Auth::user()->name }}<i class="fas fa-angle-down fa-sm ml-1"></i>
                             </a>
                             <div class="dropdown-menu mb-2" aria-labelledby="DropdownMenu">
+                                @if (Auth::user()->role == 'admin')
+                                    <a class="dropdown-item" href="{{ route('admin.home') }}"><i class="fa fa-wrench"></i> Đăng nhập quản trị</a>    
+                                @endif
                                 <a class="dropdown-item" href="{{ route('profile') }}"><i class="fas fa-user"></i> {{ trans('menu.profile') }}</a>
                                 <a class="dropdown-item" href="{{ route('favorite') }}"><i class="fas fa-heart"></i> {{ trans('menu.favorite') }}</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-book"></i> {{ trans('menu.bookcase') }}</a>

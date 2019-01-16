@@ -18,7 +18,7 @@
     <link href="{{ asset('bower_components/metisMenu/dist/metisMenu.min.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{{ asset('bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css') }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">AdminCP v1.0</a>
+                <a class="navbar-brand" href="{{ route('admin.home') }}">AdminCP v1.0</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -90,7 +90,7 @@
     <script src="{{ asset('bower_components/metisMenu/dist/metisMenu.js') }}"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="{{ asset('bower_components/startbootstrap-sb-admin-2/dist/js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('bower_components/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js') }}"></script>
 
     @section('footer')
     @show
