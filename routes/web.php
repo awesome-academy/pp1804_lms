@@ -34,6 +34,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('user/favorite', 'UserController@favorite')->name('favorite');
 });
 
-Route::prefix('admincp')->name('admin.')->group(function(){
+/**
+ * BACKEND
+ */
+
+Route::prefix('admincp')->name('admin.')->namespace('Admin')->group(function(){
     Route::get('/', 'HomeController@index')->name('home');
 });
