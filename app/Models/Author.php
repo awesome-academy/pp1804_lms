@@ -18,4 +18,9 @@ class Author extends Model
     {
         return $this->belongsTo(Book::class);
     }
+
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = str_slug($value);
+    }
 }

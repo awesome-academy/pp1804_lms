@@ -42,4 +42,5 @@ Route::prefix('admincp')->middleware(['checkrole'])->name('admin.')->namespace('
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('categories', 'CategoryController');
     Route::resource('users', 'UserController');
+    Route::resource('authors', 'AuthorController');
 });

@@ -8,7 +8,7 @@
     <a href="#"><i class="fa fa-book"></i> Books</a>
 </li>
 <li>
-    <a href="#"><i class="fa fa-user"></i> Authors</a>
+    <a href="{{ route('admin.authors.index') }}"><i class="fa fa-user"></i> Authors</a>
 </li>
 <li>
     <a href="{{ route('admin.categories.index') }}"><i class="fa fa-list-alt"></i> Categories</a>
