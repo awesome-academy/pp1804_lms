@@ -40,5 +40,6 @@ Route::middleware(['auth'])->group(function () {
 
 Route::prefix('admincp')->middleware(['checkrole'])->name('admin.')->namespace('Admin')->group(function(){
     Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('categories', 'CategoryController');
     Route::resource('users', 'UserController');
 });

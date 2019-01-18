@@ -11,7 +11,7 @@
     <a href="#"><i class="fa fa-user"></i> Authors</a>
 </li>
 <li>
-    <a href="#"><i class="fa fa-list-alt"></i> Categories</a>
+    <a href="{{ route('admin.categories.index') }}"><i class="fa fa-list-alt"></i> Categories</a>
 </li>
 <li class="active">
     <a href="{{ route('admin.users.index') }}"><i class="fa fa-users"></i> Users</a>
