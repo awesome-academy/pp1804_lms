@@ -2,7 +2,7 @@
     <div class="col-md-2">
         <div class="item">
             <a href="{{ route('book.detail', $book->slug.'-'.$book->id) }}">
-                <img src="{{ $book->image->url }}" alt="{{ $book->name }}">
+                <img src="{{ isset($book->image->url) ? asset(config('customs.upload.image_path')) . '/' . $book->image->url : '' }}" alt="{{ $book->name }}">
                 <h3>{{ $book->name }}</h3>
             </a>
             <p>Tac gia 1</p>

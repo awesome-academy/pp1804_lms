@@ -5,7 +5,7 @@
     <a href="#"><i class="fa fa-exchange"></i> Request Book</a>
 </li>
 <li>
-    <a href="#"><i class="fa fa-book"></i> Books</a>
+    <a href="{{ route('admin.books.index') }}"><i class="fa fa-book"></i> Books</a>
 </li>
 <li>
     <a href="{{ route('admin.authors.index') }}"><i class="fa fa-user"></i> Authors</a>

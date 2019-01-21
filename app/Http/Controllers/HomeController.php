@@ -49,7 +49,9 @@ class HomeController extends Controller
 
         $recommendBooks = Book::with([
             'categories' => function($query) use ($book){
-                $query->where('categories.id', $book->categories[0]->id);
+                if(isset($book->categories)){
+                    $query->where('categories.id', $book->categories[0]->id);
+                }
             },
             'authors'
         ])->inRandomOrder()->get();
