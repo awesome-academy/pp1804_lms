@@ -25,11 +25,10 @@
                     <h1 class="title">{{ $book->name }}</h1>
                     <p class="author"><a href="{{ route('author.detail', $book->authors['slug'].'-'.$book->author_id) }}">{{ $book->authors['name'] }}</a></p>
                     <p>SKU:  {{ $book->sku }}</p>
-                    <p>Nhà xuất bản: Không biết</p>
-                    <p>Phát hành bởi: Nhã Nam</p>
-                    <p>Số trang: {{ $book->number_of_page }} trang</p>
-                    <p>Số lượng còn lại: {{ $book->quantity }} cuốn</p>
-                    <p>Category: 
+                    <p>{{ trans('book.publisher') }}: {{ $book->publisher }}</p>
+                    <p>{{ trans('book.number_of_page') }}: {{ $book->number_of_page }} {{ trans('book.page') }}</p>
+                    <p>{{ trans('book.quantity') }}: {{ $book->quantity }} {{ trans('book.tome') }}</p>
+                    <p>{{ trans('book.category') }}: 
                         @if (isset($book->categories))
                             @foreach($book->categories as $category)
                                 <a href="{{ route('category.detail', $category->slug.'-'.$category->id) }}">{{ $category['name'] }}</a>
@@ -38,7 +37,11 @@
                     </p>
                     
                     <div class="book-button">
-                        <a class="btn btn-pill btn-primary" href="#" role="button">Mượn sách</a>
+                        @if (auth()->check())
+                            <a class="btn btn-pill btn-primary" href="{{ route('borrow', $book->id) }}" role="button">{{ trans('book.button.borrow') }}</a>
+                        @else
+                            <a class="btn btn-pill btn-primary" href="{{ route('login') }}" role="button">{{ trans('book.button.borrow') }}</a>
+                        @endif
                 
                         <a href="javascript:" class="add-to-wishlist active">
                             <span data-placement="bottom" data-toggle="tooltip" data-title="Thêm Vào Yêu Thích" data-original-title="" title="">

@@ -9,4 +9,13 @@ return [
         'image_path' => 'images',
     ],
     'default_cate' => 5,
+    'book' => [
+        'status' => [
+            'waiting' => 1,
+            'approved' => 2,
+            'cancel' => 3,
+            'not_approved' => 4,
+            'returned' => 5,
+        ]
+    ]
 ];

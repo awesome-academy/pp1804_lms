@@ -8,6 +8,10 @@ use App\User;
 
 class Borrow extends Model
 {
+    public $table = 'borrow';
+    
+    public $timestamps = false;
+
     protected $fillable = [
         'book_id', 
         'user_id',

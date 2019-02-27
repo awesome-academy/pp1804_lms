@@ -32,6 +32,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('user/profile/changepassword', 'UserController@showChangePasswordForm')->name('changepassword');
     Route::post('user/profile/changepassword', 'UserController@changePassword')->name('changepassword');
     Route::get('user/favorite', 'UserController@favorite')->name('favorite');
+    Route::get('user/borrow/{id}', 'UserController@showBorrowForm')->name('borrow');
+    Route::post('user/borrow/{id}', 'UserController@borrow')->name('borrow');
+    Route::get('user/borrow/{id}/cancel', 'UserController@cancelBorrowBook')->name('book.cancel');
+    Route::get('user/bookcase', 'UserController@showBookCaseForm')->name('bookcase');
 });
 
 /**

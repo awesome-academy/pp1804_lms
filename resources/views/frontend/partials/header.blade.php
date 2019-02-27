@@ -26,7 +26,7 @@
                                 @endif
                                 <a class="dropdown-item" href="{{ route('profile') }}"><i class="fas fa-user"></i> {{ trans('menu.profile') }}</a>
                                 <a class="dropdown-item" href="{{ route('favorite') }}"><i class="fas fa-heart"></i> {{ trans('menu.favorite') }}</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-book"></i> {{ trans('menu.bookcase') }}</a>
+                                <a class="dropdown-item" href="{{ route('bookcase') }}"><i class="fas fa-book"></i> {{ trans('menu.bookcase') }}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> {{ trans('menu.logout') }}</a>
 
