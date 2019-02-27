@@ -43,4 +43,5 @@ Route::prefix('admincp')->middleware(['checkrole'])->name('admin.')->namespace('
     Route::resource('categories', 'CategoryController');
     Route::resource('users', 'UserController');
     Route::resource('authors', 'AuthorController');
+    Route::resource('books', 'BookController');
 });

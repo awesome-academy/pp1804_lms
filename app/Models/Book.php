@@ -59,4 +59,16 @@ class Book extends Model
     {
         return $this->hasMany(Borrow::class);
     }
+
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = str_slug($value);
+    }
+
+    public function removeImage()
+    {
+        if(isset($this->image->url) && file_exists(public_path().'/'.config('customs.upload.image_path').'/'.$this->image->url)){
+            unlink(public_path().'/'.config('customs.upload.image_path').'/'.$this->image->url);
+        }
+    }
 }

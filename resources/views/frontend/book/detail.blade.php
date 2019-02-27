@@ -16,7 +16,7 @@
             
             <div class="col-md-4">
                 <div class="image-book">
-                    <img src="{{ $book->image->url }}" alt="{{ $book->name }}">
+                    <img src="{{ isset($book->image->url) ? asset(config('customs.upload.image_path')) . '/' . $book->image->url : '' }}" alt="{{ $book->name }}">
                 </div>
             </div>
 
@@ -30,9 +30,11 @@
                     <p>Số trang: {{ $book->number_of_page }} trang</p>
                     <p>Số lượng còn lại: {{ $book->quantity }} cuốn</p>
                     <p>Category: 
-                        @foreach($book->categories as $category)
-                            <a href="{{ route('category.detail', $category->slug.'-'.$category->id) }}">{{ $category['name'] }}</a>
-                        @endforeach
+                        @if (isset($book->categories))
+                            @foreach($book->categories as $category)
+                                <a href="{{ route('category.detail', $category->slug.'-'.$category->id) }}">{{ $category['name'] }}</a>
+                            @endforeach
+                        @endif
                     </p>
                     
                     <div class="book-button">
@@ -77,7 +79,7 @@
                 <div class="col-md-2">
                     <div class="item">
                         <a href="{{ route('book.detail', $book->slug.'-'.$book->id) }}">
-                            <img src="{{ $book->image->url }}" alt="{{ $book->name }}">
+                            <img src="{{ isset($book->image->url) ? asset(config('customs.upload.image_path')) . '/' . $book->image->url : '' }}" alt="{{ $book->name }}">
                             <h3>{{ $book->name }}</h3>
                         </a>
                         <p>{{ $book->authors['name'] }}</p>
